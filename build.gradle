@@ -4,11 +4,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        // Forge 1.12.2 build 2860 publishes userdev3; ForgeGradle 2.3 expects legacy userdev.
+        // ForgeGradle 3.x understands userdev3.
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
     }
 }
 
-apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'net.minecraftforge.gradle'
 
 version = '1.0.0'
 group = 'com.lewla.deathevolution'
@@ -17,14 +19,24 @@ archivesBaseName = 'DeathEvolution'
 sourceCompatibility = targetCompatibility = '1.8'
 
 minecraft {
-    version = '1.12.2-14.23.5.2860'
-    runDir = 'run'
-    mappings = 'snapshot_20171003'
+    mappings channel: 'snapshot', version: '20171003-1.12'
+    runs {
+        client {
+            workingDirectory project.file('run')
+        }
+        server {
+            workingDirectory project.file('run')
+        }
+    }
 }
 
 repositories {
     mavenCentral()
     maven { url = 'https://maven.minecraftforge.net/' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 }
 
 processResources {
@@ -53,3 +65,5 @@ jar {
         ])
     }
 }
+
+jar.finalizedBy('reobfJar')
