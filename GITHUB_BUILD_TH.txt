@@ -1,0 +1,21 @@
+วิธี Build ม็อดด้วย GitHub Actions
+==================================
+
+1. สร้าง repository ใหม่บน https://github.com/new
+2. ตั้งชื่อ เช่น DeathEvolution และเลือก Private หรือ Public ตามต้องการ
+3. แตกไฟล์ ZIP นี้ในเครื่อง
+4. อัปโหลด “ไฟล์และโฟลเดอร์ทั้งหมดที่อยู่ภายในโปรเจกต์” ไปไว้ที่ root ของ repository
+   ต้องเห็น .github/workflows/build.yml ที่หน้าแรกของ repository
+5. Commit changes
+6. เปิดแท็บ Actions ใน repository
+7. เลือก workflow “Build Death Evolution (Minecraft 1.12.2)” แล้วกด Run workflow
+   (หรือ workflow จะเริ่มอัตโนมัติเมื่อ push/commit ไป main หรือ master)
+8. เมื่อ workflow เป็นสีเขียว ให้เปิด run ล่าสุด เลื่อนลงไปที่ Artifacts
+9. ดาวน์โหลด artifact DeathEvolution-1.0.0 แล้วแตก ZIP ที่ดาวน์โหลดมา
+10. ใช้ DeathEvolution-1.0.0.jar ในโฟลเดอร์ mods ของ Minecraft Forge 1.12.2
+
+ถ้า Build ล้มเหลว ให้เปิด workflow run แล้วคัดลอกส่วน error สีแดง/ข้อความ “What went wrong”
+มาให้ผู้พัฒนาเพื่อตรวจสอบต่อ
+
+หมายเหตุ: การเตรียมไฟล์นี้ยังไม่ได้สร้าง GitHub repository หรือเรียกใช้งาน Actions ในนามผู้ใช้
+ต้องอัปโหลดโปรเจกต์ไปยัง repository ของผู้ใช้ก่อน จึงจะได้ JAR ที่ Build จริงจาก GitHub Actions
