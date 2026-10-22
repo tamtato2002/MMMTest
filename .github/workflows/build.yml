@@ -21,13 +21,16 @@ jobs:
           distribution: temurin
           java-version: '8'
 
-      - name: Set up Gradle 4.10.3 (ForgeGradle 2.3 compatible)
+      - name: Set up Gradle 4.10.3 (ForgeGradle 3.x compatible)
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '4.10.3'
 
+      - name: Show toolchain
+        run: java -version && gradle --version
+
       - name: Build mod
-        run: gradle build --no-daemon --stacktrace
+        run: gradle build --no-daemon --stacktrace --refresh-dependencies
 
       - name: Upload built mod JAR
         uses: actions/upload-artifact@v4
