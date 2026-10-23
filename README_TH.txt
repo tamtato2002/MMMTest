@@ -1,4 +1,4 @@
-Death Evolution — Minecraft Java 1.12.2 Forge
+Death Evolution 1.1.0 — Minecraft Java 1.12.2 Forge
 ============================================
 
 ความสามารถ
@@ -12,9 +12,30 @@ Death Evolution — Minecraft Java 1.12.2 Forge
   * Movement Speed เพิ่มตัวคูณ 1% ต่อการตาย
   * ดาเมจที่ทำได้เพิ่ม 25% ต่อการตาย (ก่อนคำนวณเกราะ/เอฟเฟกต์ตามปกติ)
   * ดาเมจที่ได้รับลดลงเรื่อย ๆ จากระบบป้องกันตามจำนวนตาย โดยค่า armor/toughness ก็เสริมการลดดาเมจด้วย
-- แสดงจำนวนตายและโบนัสในแชตหลังเกิดใหม่
+- [1.1.0] Luck Evolution: Luck +1 ต่อการตาย (ค่า Luck ของ Minecraft ถูกจำกัดที่ 1024) ช่วย Loot Table ที่รองรับ Luck
+- [1.1.0] Reflection Evolution: เมื่อผู้เล่นโดนโจมตี ดาเมจสะท้อนกลับไปยังผู้โจมตี +10% ต่อการตาย
+  * รองรับระยะประชิดและกระสุนที่ระบุตัวผู้ยิงได้ (ลูกศร ไฟร์บอล ฯลฯ)
+  * มีตัวกันสะท้อนวนซ้ำ ดาเมจที่สะท้อนจะไม่ถูกสะท้อน/คูณ/ลดซ้ำอีก
+  * ค่าเริ่มต้นสะท้อนจากดาเมจก่อนระบบป้องกันของม็อดลด (ปรับได้ด้วย reflectUsesRawDamage)
+- [1.1.0] Anti-Skill: สะท้อนดาเมจที่ไม่ใช่ระยะประชิด/กระสุน แต่ระบุตัวผู้โจมตีได้ เช่น เวทมนตร์ ระเบิด หรือดาเมจจากสกิลม็อดอื่นที่ส่งผ่านระบบดาเมจของ Forge
+  * ถ้าสกิลของม็อดไหนใช้ damage type เฉพาะ ใส่ชื่อใน antiSkillExtraDamageTypes
+  * สกิลที่ติดสถานะ/เอฟเฟกต์โดยไม่สร้างดาเมจ จะไม่ถูกตรวจจับ ต้องทำระบบแยกตามม็อดต้นทาง
+- แสดงจำนวนตายและโบนัสในแชตหลังเกิดใหม่ (รวม Luck และ % ดาเมจสะท้อน)
 - ค่าเริ่มต้นจะเปิด gamerule keepInventory เมื่อผู้เล่นตาย เพื่อรักษาสิ่งของและ EXP ของผู้เล่น
 - ข้อมูลถูกบันทึกกับผู้เล่นและคัดลอกตอน Clone/Respawn/Login
+
+ค่า Config ใหม่ใน 1.1.0 (config/deathevolution.cfg)
+- luckPerDeath = 1.0
+- reflectionEnabled = true
+- reflectPercentPerDeath = 0.10 (10%)
+- reflectBypassesArmor = true
+- reflectUsesRawDamage = true
+- reflectEntityBlacklist = (ว่าง)
+- antiSkillEnabled = true
+- antiSkillReflectMultiplier = 1.0
+- antiSkillExtraDamageTypes = (ว่าง)
+- การสูญเสียโบนัสเมื่อตาย: ไม่มี | การแจ้งเตือน: แชต
+หมายเหตุ: ไฟล์ cfg เดิมของ 1.0.0 จะถูกเติมค่าใหม่ให้อัตโนมัติเมื่อเปิดเกม
 
 ข้อควรทราบ
 - ตัวนับการตายไม่มีเพดานที่ตั้งไว้ แต่ค่าสถานะ/ดาเมจใช้ safety cap ขนาดใหญ่มากใน config เพื่อป้องกันค่า Infinity/NaN ที่อาจทำให้เกมรวนเมื่อมีจำนวนตายมหาศาล
@@ -26,7 +47,7 @@ Death Evolution — Minecraft Java 1.12.2 Forge
 2. ดาวน์โหลด Forge MDK สำหรับ Minecraft 1.12.2 เช่น Forge 1.12.2-14.23.5.2860 แล้วแตกไฟล์
 3. คัดลอกไฟล์ build.gradle, gradle.properties และโฟลเดอร์ src จากโปรเจกต์นี้ไปไว้ในโฟลเดอร์ MDK ที่แตกไว้ (อนุญาตให้เขียนทับ build.gradle)
 4. เปิด Command Prompt ในโฟลเดอร์ MDK แล้วเรียก: gradlew.bat build
-5. เมื่อ Build ผ่าน ไฟล์จะอยู่ใน build\libs\DeathEvolution-1.0.0.jar
+5. เมื่อ Build ผ่าน ไฟล์จะอยู่ใน build\libs\DeathEvolution-1.1.0.jar
 6. คัดลอก .jar ไปใส่ .minecraft\mods ของโปรไฟล์ Forge 1.12.2 ที่ใช้เล่น RLCraft
 
 หมายเหตุเกี่ยวกับไฟล์ที่ส่งให้

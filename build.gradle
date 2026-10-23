@@ -12,11 +12,15 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.0.0'
+version = '1.1.0'
 group = 'com.lewla.deathevolution'
 archivesBaseName = 'DeathEvolution'
 
 sourceCompatibility = targetCompatibility = '1.8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 minecraft {
     mappings channel: 'snapshot', version: '20171003-1.12'

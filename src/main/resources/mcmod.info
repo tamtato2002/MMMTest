@@ -2,7 +2,7 @@
   {
     "modid": "deathevolution",
     "name": "Death Evolution",
-    "description": "Every death grants permanent, stacking power. Designed for Minecraft 1.12.2 Forge modpacks such as RLCraft.",
+    "description": "Every death grants permanent, stacking power: stats, luck, damage reflection and anti-skill. Designed for Minecraft 1.12.2 Forge modpacks such as RLCraft.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "",

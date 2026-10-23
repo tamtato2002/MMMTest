@@ -8,6 +8,6 @@ Forge 1.12.2-14.23.5.2860 มีไฟล์ userdev3 ซึ่ง ForgeGradle 2
 1. แตก ZIP นี้
 2. อัปโหลดไฟล์และโฟลเดอร์ทั้งหมดไปยัง root ของ GitHub repository
 3. เปิดแท็บ Actions แล้วรัน Build Death Evolution (Minecraft 1.12.2)
-4. เมื่อ workflow สำเร็จ ดาวน์โหลด Artifact ชื่อ DeathEvolution-1.0.0
+4. เมื่อ workflow สำเร็จ ดาวน์โหลด Artifact ชื่อ DeathEvolution-1.1.0
 
 หมายเหตุ: ไฟล์ JAR จะถูกสร้างจริงก็ต่อเมื่อ GitHub Actions แสดงผลสำเร็จเท่านั้น

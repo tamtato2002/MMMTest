@@ -19,5 +19,5 @@ if errorlevel 1 (
   exit /b 1
 )
 echo.
-echo Build complete. Look in build\libs for DeathEvolution-1.0.0.jar
+echo Build complete. Look in build\libs for DeathEvolution-1.1.0.jar
 pause

@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class DeathEvolution {
     public static final String MODID = "deathevolution";
     public static final String NAME = "Death Evolution";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.1.0";
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
